@@ -45,5 +45,5 @@
     "Run: grep 'brand-mark' /projects/sandbox/Project-clone-stella2/Web1.html to verify P initial"
   ],
   "blocked_reason": null,
-  "findings": "All replacements completed successfully. The only remaining 'COT' match is inside base64 image data (not actual page content). The body padding-bottom was added in the style block to prevent the sticky banner from overlapping footer content."
+  "findings": "All replacements completed successfully. The only remaining 'COT' match is inside base64 image data (not actual page content). The body padding-bottom was added in the style block to prevent the sticky banner from overlapping footer content. Review fixes applied: cleared stellaelsya.com from og:url, og:image, twitter:image, canonical, savepage-from, savepage-url meta tags; changed footer T&C link to #; removed vestigial WebP source from profile-panel picture; increased body padding-bottom from 52px to 60px."
 }
