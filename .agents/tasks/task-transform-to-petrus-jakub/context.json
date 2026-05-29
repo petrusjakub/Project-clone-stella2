@@ -1,0 +1,19 @@
+{
+  "project_type": "Static HTML single-page website (saved/downloaded page with embedded CSS and base64 images)",
+  "language": "HTML/CSS/JavaScript",
+  "build_system": "None - single HTML file with embedded styles and inline scripts",
+  "test_framework": "None - visual verification only",
+  "build_command": "N/A",
+  "test_command": "N/A - verify with grep checks on the HTML file",
+  "verification_instructions": "Verify all text replacements were made correctly by grepping the HTML file for old values (should return 0 matches) and new values (should return expected matches)",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "No setup needed - single HTML file editing",
+  "environment_constraints": "INTEGRATIONS_ONLY network - no external access. All changes are text transformations within the HTML file.",
+  "contribution_requirements": "N/A",
+  "key_patterns": "Single large HTML file with embedded CSS in <style> tag, base64-encoded images, savepage metadata. File is 1366 lines. Key sections: header (nav with brand), hero section, trust section, achievement section (MDRT/COT), products section, QnA section, fun facts section, footer.",
+  "relevant_files": [
+    "/projects/sandbox/Project-clone-stella2/Web1.html",
+    "/projects/sandbox/Project-clone-stella2/Pj.jpg"
+  ],
+  "directory_structure": "Root contains only Web1.html and Pj.jpg"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Transform the website from Stella Elsya to Petrus Jakub by performing all text, link, and content replacements, adding sticky banner and floating WA icon, and modifying the achievement and footer sections.",
+  "status": "completed",
+  "steps": [
+    "1. Replace ALL occurrences of 'Stella Elsya' with 'Petrus Jakub' throughout Web1.html (meta tags, og tags, twitter tags, savepage meta, header brand, profile panel figcaption, quote citation, footer h2, footer-bottom copyright, aria-labels, keywords). There are references in: lines 2 (favicon aria-label SVG), 5 (title), 6 (description), 7 (keywords), 10 (icon aria-label SVG), 12 (og:site_name), 13 (og:title), 22 (twitter:title), 25 (twitter:image:alt), ~935 (savepage-title meta), ~937 (savepage-from meta), ~970 (header brand aria-label), ~1007 (figcaption strong), ~1047 (blockquote cite), ~1349 (footer h2), ~1357 (footer-bottom copyright).",
+    "2. Replace ALL occurrences of 'Senior Manulife Agent' with 'Partner Bisnis Manulife' (title, og:title, twitter:title, twitter:image:alt, header brand small, figcaption span, quote cite).",
+    "3. Replace the brand-mark initial 'S' with 'P' in the header nav brand-mark span (line ~971).",
+    "4. Replace ALL WhatsApp numbers: change '6282255291890' to '6287781896087' everywhere. Also change the WA link text parameter from the current text to 'Pak%20Petrus%20saya%20tertarik%20asuransi'. Update all wa.me and api.whatsapp.com links to use the new number 6287781896087 and the new text. There are WA links at: nav-cta (line 979), hero-actions (line 998), MUCC product button (line 1114), MUHC product button (line 1125), help-cta Hubungi Saya (line 1130), and several product buttons in the products-section (lines around 1148, 1160, 1175, 1188, 1200, 1215).",
+    "5. Replace the MUHC product card button link (line 1125) href to 'https://haipetrus.netlify.app/' instead of a WhatsApp link. Keep the button text and target='_blank'.",
+    "6. Change '19 tahun' references: In hero-subtitle (line 991) change 'Selama 19 tahun' to 'Selama 10 tahun lebih di industri asuransi'. In the trust section feature-card h3 (line ~1029) change '19 Tahun Pengalaman' to '10 Tahun Lebih di Industri Asuransi'. In the feature-card paragraph below it, update the text to match (change 'Hampir dua dekade' to something like 'Lebih dari satu dekade'). In footer paragraph (line ~1350), change '19 tahun mengawal' to '10 tahun lebih mengawal'.",
+    "7. Modify the MDRT achievement section recognition-grid (lines ~1066-1090): Remove the year badges (span elements with years) from the MDRT card but keep the MDRT card title and description. Remove the entire COT card (the article with class='recognition-card highlight' containing h3 COT).",
+    "8. Change 'Kalimantan Barat' to 'Jakarta' in the footer address span (line ~1355).",
+    "9. Remove 'Certified Financial Planner' from the footer-bottom text (line ~1357). Also remove the redundant second WhatsApp line in address - keep only one contact method (the clickable WhatsApp link) and the tel: link, but make the tel number show 087781896087 format. Update the footer to avoid redundant WhatsApp number display.",
+    "10. Replace all profile image references with 'Pj.jpg': The profile-panel picture/img currently has a base64 src. Replace the large base64 data src with just 'Pj.jpg'. Also update the data-savepage-src attributes from 'public/profile-pic.jpg' to 'Pj.jpg'. Update the achievement section image if there is one.",
+    "11. Add a sticky banner at the bottom of the viewport (fixed position, z-index above content) with text 'Konsultasi Gratis ~ Petrus Jakub', a WhatsApp SVG icon, and the number '087781896087'. The entire banner should be clickable linking to https://wa.me/6287781896087?text=Pak%20Petrus%20saya%20tertarik%20asuransi. Style: green background (#00a968), white text, padding, centered content, always visible at bottom.",
+    "12. Add a floating WhatsApp icon button: fixed position in bottom-right corner (above the sticky banner), circular green button with WA icon (SVG), linking to the same WA URL. No text, just the icon. Style: 56px circle, box-shadow, z-index higher than banner.",
+    "13. Add CSS for the sticky banner and floating WA icon in the existing <style> block. The sticky banner should be at the very bottom (position: fixed; bottom: 0; left: 0; right: 0). Add appropriate padding-bottom to the body to prevent the banner from overlapping content. The floating button should be positioned at bottom-right, slightly above the banner (e.g., bottom: 70px; right: 20px)."
+  ],
+  "acceptance_criteria": [
+    "grep -c 'Stella Elsya' Web1.html returns 0 (no remaining old name references, except possibly in data-savepage-href URLs which are metadata only)",
+    "grep -c 'Senior Manulife Agent' Web1.html returns 0",
+    "grep -c '6282255291890' Web1.html returns 0",
+    "grep -c 'Petrus Jakub' Web1.html returns multiple matches",
+    "grep -c 'Partner Bisnis Manulife' Web1.html returns multiple matches",
+    "grep -c '6287781896087' Web1.html returns multiple matches",
+    "grep -c 'COT' Web1.html returns 0 (the COT card is removed)",
+    "grep -c 'Kalimantan' Web1.html returns 0",
+    "grep -c 'Certified Financial Planner' Web1.html returns 0",
+    "The sticky-banner HTML element exists in the file",
+    "The floating WA button HTML element exists in the file",
+    "The MUHC button links to https://haipetrus.netlify.app/",
+    "grep -c 'haipetrus' Web1.html returns at least 1",
+    "Year spans (2012, 2013, etc.) are removed from MDRT card",
+    "The brand-mark shows 'P' instead of 'S'"
+  ],
+  "verification": [
+    "Run: grep -c 'Stella Elsya' /projects/sandbox/Project-clone-stella2/Web1.html (expect 0 or only in savepage URL metadata)",
+    "Run: grep -c '6282255291890' /projects/sandbox/Project-clone-stella2/Web1.html (expect 0)",
+    "Run: grep -c 'Petrus Jakub' /projects/sandbox/Project-clone-stella2/Web1.html (expect > 5)",
+    "Run: grep -c '6287781896087' /projects/sandbox/Project-clone-stella2/Web1.html (expect > 5)",
+    "Run: grep -c 'sticky-banner\\|floating-wa' /projects/sandbox/Project-clone-stella2/Web1.html (expect > 0)",
+    "Run: grep -c 'haipetrus' /projects/sandbox/Project-clone-stella2/Web1.html (expect >= 1)",
+    "Run: grep 'brand-mark' /projects/sandbox/Project-clone-stella2/Web1.html to verify P initial"
+  ],
+  "blocked_reason": null,
+  "findings": "All replacements completed successfully. The only remaining 'COT' match is inside base64 image data (not actual page content). The body padding-bottom was added in the style block to prevent the sticky banner from overlapping footer content. Review fixes applied: cleared stellaelsya.com from og:url, og:image, twitter:image, canonical, savepage-from, savepage-url meta tags; changed footer T&C link to #; removed vestigial WebP source from profile-panel picture; increased body padding-bottom from 52px to 60px."
+}
