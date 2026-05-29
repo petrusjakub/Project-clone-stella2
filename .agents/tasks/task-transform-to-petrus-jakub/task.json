@@ -1,0 +1,7 @@
+{
+  "task_id": "task-transform-to-petrus-jakub",
+  "task_description": "Transform the downloaded Stella Elsya website clone into a Petrus Jakub version by replacing all personal details, modifying content sections, and adding interactive WhatsApp elements.",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001"],
+  "blocked_reason": null
+}
